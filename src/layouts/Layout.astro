@@ -1,15 +1,24 @@
 ---
 type Robots = "index" | "follow" | "noindex" | "nofollow";
 
+const site_name = "morganlabs";
+
 type XCard = {
-    card?: "summary" | "summary_large_image" | "app" | "player";
+    card_type?: "summary" | "summary_large_image" | "app" | "player";
     creator?: `@${string}`;
+};
+
+type Author = {
+    name: string;
+    email: `${string}@${string}.${string}`;
 };
 
 type Metadata = {
     title: string;
     description: string;
+    author: Author;
     image?: string;
+    keywords: string[];
     robots?: Robots[];
     url?: string;
     x?: XCard;
@@ -23,11 +32,16 @@ const {
     metadata: {
         title = "No Title",
         description,
+        author = {
+            name: "Morgan Jones",
+            email: "mjones@morganlabs.dev",
+        },
         image,
+        keywords = [],
         robots = ["index", "follow"],
         url = Astro.url.pathname,
         x = {
-            card: "summary",
+            card_type: "summary",
             creator: "@morganlabs_",
         },
     },
@@ -44,15 +58,23 @@ const {
 
         <title>{title} | morganlabs</title>
         <meta name="description" content={description} />
+        <meta name="author" content={`${author.name} <${author.email}>`} />
+        <meta name="keywords" content={keywords.join(",")} />
         <meta name="robots" content={robots.join(",")} />
 
         <meta name="og:title" content={title} />
-        <meta name="og:url" content={url} />
         <meta name="og:description" content={description} />
+        <meta name="og:site_name" content={site_name} />
+        <meta name="og:url" content={url} />
         <meta name="og:image" content={image} />
 
         <meta name="twitter:site" content="@morganlabs_" />
         <meta name="twitter:creator" content={x.creator} />
+        <meta name="twitter:card" content={x.card_type} />
+        <meta name="twitter:url" content={url} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
 
         <!-- Favicon -->
         <!-- Why cant we all just support SVG icons holy shit 😭 -->
