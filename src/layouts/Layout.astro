@@ -1,7 +1,12 @@
 ---
 type Robots = "index" | "follow" | "noindex" | "nofollow";
 
-type Props = {
+type XCard = {
+    card?: "summary" | "summary_large_image" | "app" | "player";
+    creator?: `@${string}`;
+};
+
+type Metadata = {
     title: string;
     description: string;
     image?: string;
@@ -10,20 +15,21 @@ type Props = {
     x?: XCard;
 };
 
-type XCard = {
-    card?: "summary" | "summary_large_image" | "app" | "player";
-    creator?: `@${string}`;
+type Props = {
+    metadata: Metadata;
 };
 
 const {
-    title = "No Title",
-    description,
-    image,
-    robots = ["index", "follow"],
-    url = Astro.url.pathname,
-    x = {
-        card: "summary",
-        creator: "@morganlabs_",
+    metadata: {
+        title = "No Title",
+        description,
+        image,
+        robots = ["index", "follow"],
+        url = Astro.url.pathname,
+        x = {
+            card: "summary",
+            creator: "@morganlabs_",
+        },
     },
 } = Astro.props;
 ---
@@ -34,7 +40,6 @@ const {
         <meta charset="UTF-8" />
         <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
 
         <title>{title} | morganlabs</title>
@@ -48,6 +53,41 @@ const {
 
         <meta name="twitter:site" content="@morganlabs_" />
         <meta name="twitter:creator" content={x.creator} />
+
+        <!-- Favicon -->
+        <!-- Why cant we all just support SVG icons holy shit 😭 -->
+        <!-- realfavicongenerator.net is a life saver for this -->
+        <link rel="icon" type="image/svg+xml" href="/fav/favicon.svg" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/fav/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/fav/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/fav/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/fav/safari-pinned-tab.svg"
+            color="#1c1225"
+        />
+        <link rel="shortcut icon" href="/fav/favicon.ico" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        <meta name="theme-color" content="#1c1225" />
+        <meta name="apple-mobile-web-app-title" content="morganlabs" />
+        <meta name="application-name" content="morganlabs" />
+        <meta name="msapplication-TileColor" content="#603cba" />
     </head>
     <body>
         <slot />

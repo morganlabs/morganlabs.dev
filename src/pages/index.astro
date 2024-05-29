@@ -3,7 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 ---
 
-<Layout title="Home" description="Welcome to morganlabs!">
+<Layout
+    metadata={{
+        title: "Home",
+        description: "Welcome to morganlabs!",
+    }}
+>
     <main>
         <h1>Hello, world.</h1>
     </main>
