@@ -2,21 +2,25 @@
 type Link = {
     title: string;
     href: string;
-    custom_class: string[];
+    custom_class?: string[];
 };
 
 type Props = {
     links: Link[];
 };
 
-const { links } = Astro.props;
+let { links } = Astro.props;
+links = links.map((link) => ({
+    ...link,
+    custom_class: link.custom_class ?? [],
+}));
 ---
 
 <ul class="links">
     {
         links.map(({ title, href, custom_class }, idx) => (
             <>
-                <li class:list={["link-container", ...custom_class]}>
+                <li class:list={["link-container", ...custom_class!]}>
                     <a class="link" {href}>
                         {title}
                     </a>

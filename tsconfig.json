@@ -2,9 +2,10 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@styles": ["style"],
       "@styles/*": ["style/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@assets/*": ["assets/*"]
     }
   },
   "extends": "astro/tsconfigs/strict"
