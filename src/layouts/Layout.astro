@@ -1,51 +1,56 @@
 ---
-interface Props {
-	title: string;
-}
+type Robots = "index" | "follow" | "noindex" | "nofollow";
 
-const { title } = Astro.props;
+type Props = {
+    title: string;
+    description: string;
+    image?: string;
+    robots?: Robots[];
+    url?: string;
+    x?: XCard;
+};
+
+type XCard = {
+    card?: "summary" | "summary_large_image" | "app" | "player";
+    creator?: `@${string}`;
+};
+
+const {
+    title = "No Title",
+    description,
+    image,
+    robots = ["index", "follow"],
+    url = Astro.url.pathname,
+    x = {
+        card: "summary",
+        creator: "@morganlabs_",
+    },
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>{title} | morganlabs</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content={robots.join(",")} />
+
+        <meta name="og:title" content={title} />
+        <meta name="og:url" content={url} />
+        <meta name="og:description" content={description} />
+        <meta name="og:image" content={image} />
+
+        <meta name="twitter:site" content="@morganlabs_" />
+        <meta name="twitter:creator" content={x.creator} />
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
+<style is:global></style>
