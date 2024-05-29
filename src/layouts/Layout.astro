@@ -1,4 +1,5 @@
 ---
+import "@styles/global.scss";
 type Robots = "index" | "follow" | "noindex" | "nofollow";
 
 const site_name = "morganlabs";
@@ -16,9 +17,9 @@ type Author = {
 type Metadata = {
     title: string;
     description: string;
-    author: Author;
+    author?: Author;
     image?: string;
-    keywords: string[];
+    keywords?: string[];
     robots?: Robots[];
     url?: string;
     x?: XCard;

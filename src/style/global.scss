@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: $black;
+    color: $white;
+}
+
+h1 {
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    font-size: 3rem;
+}
+
+h2 {
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    font-size: 2rem;
+}
+
+h3 {
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    font-size: 1.5rem;
+}
+
+h6 {
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: $body-font;
+    font-weight: $body-font-weight;
+    line-height: $body-line-height;
+    font-size: 1rem;
+    padding-bottom: 1em;
+}
+
+a {
+    color: lighten($accent, 10%);
+    transition: color 0.1s ease-in-out;
+
+    &:hover {
+        color: lighten($accent, 20%);
+    }
+}
