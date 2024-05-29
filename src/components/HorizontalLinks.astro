@@ -1,0 +1,50 @@
+---
+type Link = {
+    title: string;
+    href: string;
+    custom_class: string[];
+};
+
+type Props = {
+    links: Link[];
+};
+
+const { links } = Astro.props;
+---
+
+<ul class="links">
+    {
+        links.map(({ title, href, custom_class }, idx) => (
+            <>
+                <li class:list={["link-container", ...custom_class]}>
+                    <a class="link" {href}>
+                        {title}
+                    </a>
+                </li>
+                {idx === links.length - 1 ? null : <ul class="seperator" />}
+            </>
+        ))
+    }
+</ul>
+
+<style lang="scss">
+    .links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 1rem;
+    }
+
+    .link {
+        color: $white;
+    }
+
+    .seperator {
+        $size: 4px;
+        display: block;
+        background-color: $white;
+        width: $size;
+        height: $size;
+        border-radius: 9999px;
+    }
+</style>
