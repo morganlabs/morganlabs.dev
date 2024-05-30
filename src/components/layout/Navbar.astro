@@ -27,7 +27,7 @@ const filtered_pages = pages
     .map(({ title, href }) => ({
         title,
         href,
-        custom_class: [href === active_route ? "active" : ""],
+        custom_class: [href.startsWith(active_route) ? "active" : ""],
     }));
 ---
 
