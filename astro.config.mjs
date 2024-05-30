@@ -21,8 +21,8 @@ export default define_config({
         },
       },
     },
-    plugins: [mdx()],
   },
+  integrations: [mdx()],
   redirects: {
     "/favicon.ico": "/fav/favicon.ico",
   },

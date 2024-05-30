@@ -8,6 +8,8 @@ tags: ["music", "software"]
 hero_alt: A screenshot of a smart playlist in Apple Music.
 ---
 
+import { Image } from "astro:assets";
+
 Apple Music is a service I've been using for about a year and a half at this point, and I'll say I have fallen in love with it. No, it's not Lossless or Dolby Atmos (though they play a small part), but other little things that make the service worth the money.
 
 # Preface
@@ -44,15 +46,21 @@ I then decided to download the app on my Windows 10 laptop. Actual Apple Music, 
 
 ## Smart Playlists
 
-![[Pasted image 20240527230606.png]]
+import SmartPlaylist1 from "@assets/blog/1_why-i-love-apple-music/smart-playlist-1.png";
+
+<Image src={SmartPlaylist1} alt="A screenshot of the window to create a new smart playlist in Apple Music on macOS." />
 
 ARE YOU SEEING THIS SHIT? Might not look like much, but let's take a look at another smart playlist.
 
-![[Pasted image 20240528000719.png]]
+import SmartPlaylist2 from "@assets/blog/1_why-i-love-apple-music/smart-playlist-2.png";
+
+<Image src={SmartPlaylist2} alt="A screenshot of the window to edit a smart playlist in Apple Music on macOS." />
 
 Are you starting to get it now?
 
-![[Pasted image 20240528000743.png]]
+import SmartPlaylist3 from "@assets/blog/1_why-i-love-apple-music/smart-playlist-3.png";
+
+<Image src={SmartPlaylist3} alt="A screenshot of the window to edit a smart playlist in Apple Music on macOS." />
 
 If you still aren't getting it, let me spell it out for you. Smart Playlists are a way of letting Apple Music make playlists for you, not on it's own, but with your own parameters.
 
@@ -67,14 +75,19 @@ On it's own, this is pretty neat! After thinking some more on it, and finding ou
 I devised a system to easily manage my music in a way that was optimal for creating smart playlists, and it goes like this:
 
 1 star - It's a good song
+
 2 stars - It's the best of the album
+
 3 stars - It's the best of the artist
+
 4 stars - It's the best of the genre
+
 5 stars - The things I would do to this song... 🫦
 
 I'm not very good at *enforcing* this ruleset, but having it in place definitely helps.
 
 > "So, what if you don't like the song?"
+>
 > \- You, possibly
 
 Delete it. Apple Music lets you.
@@ -85,22 +98,26 @@ Who in their right mind at the likes of Spotify and TIDAL decided that letting u
 
 Another extremely neat feature is the ability to edit a bunch of metadata of songs! Want to move the featured artist from the title to the artists section? Go for it! Don't like an artist, but they collaborated on a song you do like? Change it (though that feels very petty)! The possibilities go on.
 
-This actually has come in quite handy a couple of times for me. One such time was when I was listening to [Meteora|20th Anniversary Edition by LINKIN PARK](https://music.apple.com/gb/album/meteora-20th-anniversary-edition/1668484895\). I don't normally listen to live shows. I'll watch them online, sure, but I don't listen to them. So, all I did was split the album in two. One with the original Meteora along with the new demos and songs, and another with just live shows. Now I can listen to Meteora|20 without skipping around a bunch, but I always have the live shows right there.
+This actually has come in quite handy a couple of times for me. One such time was when I was listening to [Meteora|20th Anniversary Edition by LINKIN PARK](https://music.apple.com/gb/album/meteora-20th-anniversary-edition/1668484895). I don't normally listen to live shows. I'll watch them online, sure, but I don't listen to them. So, all I did was split the album in two. One with the original Meteora along with the new demos and songs, and another with just live shows. Now I can listen to Meteora|20 without skipping around a bunch, but I always have the live shows right there.
 
 ## Apple Music Cloud Library
 
 This here is a godsend of a feature. This lets you sync your music between devices. Sounds basic, right? Well, take a look here:
 
-![[Pasted image 20240528005215.png]]
+import CloudLibrary1 from "@assets/blog/1_why-i-love-apple-music/cloud-library-1.png";
 
+<Image src={CloudLibrary1} alt={'A screenshot of the album "EVE burst error" on Apple Music for macOS. This album is not provided by Apple Music.'} />
 
 Go ahead and look this album up on Apple Music. No, seriously, go on. I'll give you a few minutes.
 
 You're back? Great! Assuming this hasn't been added to Apple Music, you found nothing. Now look at this:
 
-![[Screenshot 2024-05-28 at 00.52.33.jpeg|256]]
+import CloudLibrary2 from "@assets/blog/1_why-i-love-apple-music/cloud-library-2.png";
+
+<Image src={CloudLibrary2} alt={'A screenshot of the album "EVE burst error" on Apple Music for iOS. This album is not provided by Apple Music.'} />
 
 > "Okay? You synced it to your phone."
+>
 > \- You again, possibly
 
 Technically, yes. But what if I said neither my phone nor my computer held these files anywhere on either device? And I didn't have to sync SHIT myself?
@@ -131,7 +148,9 @@ At the moment, I'm using macOS. But on a Linux device, using a 3rd party client 
 
 I believe this is a little remnant of iTunes showing through the cracks, but look at this list of artists:
 
-![[Pasted image 20240528011239.png]]
+import ArtistListing from '/src/assets/blog/1_why-i-love-apple-music/artist-listing.png'
+
+<Image src={ArtistListing} alt={'A screenshot of the album "EVE burst error" on Apple Music for iOS. This album is not provided by Apple Music.'} />
 
 Whenever an artist has another artist listed in their artist tag (say that three times fast), they show up as an entirely different artist entity inside of the artists list. Not a massive deal, but something to note.
 

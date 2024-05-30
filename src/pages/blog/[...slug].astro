@@ -64,10 +64,14 @@ const { default: hero } = await hero_image;
     </div>
     <h1>{title}</h1>
     <div class="kicker">{kicker}</div>
-    <PublishedBy authors={d_authors} />
+    <div class="published-by">
+        <PublishedBy authors={d_authors} />
+    </div>
     <Image class="hero" src={hero_image} alt={hero_alt} width={768} />
     <Separator />
-    <Content />
+    <article class="content">
+        <Content />
+    </article>
 </Layout>
 
 <style lang="scss">
@@ -92,5 +96,29 @@ const { default: hero } = await hero_image;
     .tags {
         display: flex;
         gap: 0.5rem;
+    }
+
+    .published-by {
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .content {
+        text-align: center;
+        :global(*:not(img)) {
+            text-align: left;
+        }
+
+        :global(*:has(img)) {
+            text-align: center;
+        }
+
+        :global(* img),
+        :global(img) {
+            max-width: 100%;
+            max-height: 512px;
+            width: auto;
+            height: auto;
+        }
     }
 </style>
