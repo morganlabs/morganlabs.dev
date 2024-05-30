@@ -7,6 +7,7 @@ import Separator from "@components/Separator.astro";
 import BlogPost from "@components/BlogPost.astro";
 import ThumbsUp from "@assets/profile-images/1_morganlabs.png";
 import { getEntry as get_entry } from "astro:content";
+import UserAboutHeader from "@components/UserAboutHeader.astro";
 
 const current_date = new Date();
 const birth_date = new Date("2007-03-01");
@@ -17,7 +18,7 @@ const blog_posts = (await get_collection("blog"))
     .slice(0, 6);
 
 const me = await get_entry("authors", "morganlabs");
-const socials = me.data.social_media;
+const { name, kicker, social_media } = me.data;
 ---
 
 <Layout
@@ -27,12 +28,13 @@ const socials = me.data.social_media;
         description: "Welcome to morganlabs!",
     }}
 >
-    <Image src={ThumbsUp} alt="Memoji showing a thumbs up hand." width={128} />
-    <h1>Hiya! I'm Morgan.</h1>
-    <p>I am a {age} year old designer and developer living in Wales.</p>
-    <div class="social-links">
-        <HorizontalLinks items={socials} />
-    </div>
+    <UserAboutHeader
+        username={me.slug}
+        name="Hiya! I'm Morgan."
+        {kicker}
+        {social_media}
+        no_user_info
+    />
     <Separator />
     <h2>Recent Blog Posts</h2>
     <p>

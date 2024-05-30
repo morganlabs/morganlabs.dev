@@ -9,9 +9,11 @@ type Props = {
     kicker?: string;
     social_media?: Item[];
     email?: string;
+    no_user_info?: boolean;
 };
 
-const { name, username, kicker, social_media, email } = Astro.props;
+const { name, username, kicker, social_media, email, no_user_info } =
+    Astro.props;
 
 let user_info: Item[] = [{ title: "@" + username }];
 
@@ -36,9 +38,16 @@ const profile_image = profile_images[1];
         sizes={`(max-width: 574px) 96px, 128px`}
     />
     <div class="info">
-        <span class="links">
-            <HorizontalLinks items={user_info} />
-        </span>
+        {
+            () => {
+                if (!no_user_info)
+                    return (
+                        <span class="links">
+                            <HorizontalLinks items={user_info} />
+                        </span>
+                    );
+            }
+        }
         <h1>{name}</h1>
     </div>
     <div class="below">

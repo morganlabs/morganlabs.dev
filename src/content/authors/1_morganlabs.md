@@ -7,7 +7,7 @@ social_media: [
   { title: "GitHub", href: "https://github.com/morganlabs" },
   { title: "Ko-Fi", href: "https://ko-fi.com/morganlabs" },
   { title: "Mastodon", href: "https://mastodon.social/@morganlabs" },
-  { title: "FormerlyTwitter", href: "https://x.com/morganlabs_" },
+  { title: "X", href: "https://x.com/morganlabs_" },
 ]
 ---
 
