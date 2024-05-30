@@ -10,7 +10,6 @@ import {
   englishRecommendedTransformers,
   grawlixCensorStrategy,
   keepStartCensorStrategy,
-  randomCharFromSetCensorStrategy,
 } from "obscenity";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,6 +17,7 @@ const __dirname = dirname(__filename);
 const variables_scss = resolve(__dirname, "src/style/vars");
 
 export default defineConfig({
+  output: "static",
   markdown: {
     remarkPlugins: [[behead, { minDepth: 2 }], censor],
   },
