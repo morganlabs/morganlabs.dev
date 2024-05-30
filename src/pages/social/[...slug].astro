@@ -1,0 +1,23 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getEntry as get_entry } from "astro:content";
+
+export async function getStaticPaths() {
+    const me = await get_entry("authors", "morganlabs");
+    const socials = me.data.social_media;
+    return socials.map((social) => ({
+        params: { slug: social.title.toLowerCase() },
+        props: { social },
+    }));
+}
+
+const { social } = Astro.props;
+return Astro.redirect(social.href);
+---
+
+<Layout
+    active_route="/"
+    metadata={{ title: "Redirecting...", description: "" }}
+>
+    <h1>Taking you to {social.title}...</h1>
+</Layout>

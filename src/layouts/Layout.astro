@@ -85,6 +85,8 @@ const author =
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
 
+        <link rel="me" href="https://hachyderm.io/@morganlabs" />
+
         <!-- Favicon -->
         <!-- Why cant we all just support SVG icons holy shit 😭 -->
         <!-- realfavicongenerator.net is a life saver for this -->
@@ -126,13 +128,13 @@ const author =
             <slot />
         </main>
     </body>
-</html>
 
-<style lang="scss">
-    .content {
-        font-family: $body-font;
-        max-width: calc($content-width + 1rem);
-        padding-inline: 1rem;
-        margin-inline: auto;
-    }
-</style>
+    <style lang="scss">
+        .content {
+            font-family: $body-font;
+            max-width: calc($content-width + 1rem);
+            padding-inline: 1rem;
+            margin-inline: auto;
+        }
+    </style>
+</html>

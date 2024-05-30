@@ -33,6 +33,8 @@ export default defineConfig({
   integrations: [mdx()],
   redirects: {
     "/favicon.ico": "/fav/favicon.ico",
+    "/support": "/s/ko-fi",
+    "/s/[slug]": "/social/[slug]",
   },
 });
 
