@@ -17,7 +17,6 @@ const blog = defineCollection({
     authors: array(reference("authors")).default(["morganlabs"]),
     title: string(),
     kicker: string(),
-    description: string(),
     published: date(),
     tags: array(reference("tags")),
     hero_alt: string(),
