@@ -1,17 +1,25 @@
-import { defineConfig as define_config } from "astro/config";
+import { defineConfig } from "astro/config";
 import { fileURLToPath } from "url";
 import { resolve, dirname } from "path";
 import mdx from "@astrojs/mdx";
 import behead from "remark-behead";
+import {
+  RegExpMatcher,
+  TextCensor,
+  englishDataset,
+  englishRecommendedTransformers,
+  grawlixCensorStrategy,
+  keepStartCensorStrategy,
+  randomCharFromSetCensorStrategy,
+} from "obscenity";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const variables_scss = resolve(__dirname, "src/style/vars");
 
-// https://astro.build/config
-export default define_config({
+export default defineConfig({
   markdown: {
-    remarkPlugins: [[behead, { minDepth: 2 }]],
+    remarkPlugins: [[behead, { minDepth: 2 }], censor],
   },
   vite: {
     css: {
@@ -27,3 +35,30 @@ export default define_config({
     "/favicon.ico": "/fav/favicon.ico",
   },
 });
+
+function censor() {
+  return (tree) => {
+    const matcher = new RegExpMatcher({
+      ...englishDataset.build(),
+      ...englishRecommendedTransformers,
+    });
+    const censor = new TextCensor().setStrategy(
+      keepStartCensorStrategy(grawlixCensorStrategy()),
+    );
+
+    visit(tree, "text", (node) => {
+      const matches = matcher.getAllMatches(node.value);
+      node.value = censor.applyTo(node.value, matches);
+    });
+  };
+
+  function visit(node, type, callback) {
+    if (Array.isArray(node)) {
+      node.forEach((child) => visit(child, type, callback));
+    } else if (node.type === type) {
+      callback(node);
+    } else if (node.children) {
+      node.children.forEach((child) => visit(child, type, callback));
+    }
+  }
+}
