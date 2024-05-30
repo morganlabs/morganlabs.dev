@@ -1,0 +1,108 @@
+---
+import BlogPost from "@components/BlogPost.astro";
+import HorizontalItems from "@components/HorizontalItems.astro";
+import Separator from "@components/Separator.astro";
+import Layout from "@layouts/Layout.astro";
+import type { GetStaticPaths } from "astro";
+import { getCollection as get_collection } from "astro:content";
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const blog_entries = await get_collection("blog");
+    blog_entries.sort(
+        (a, b) =>
+            new Date(b.data.published).getTime() -
+            new Date(a.data.published).getTime(),
+    );
+    return paginate(blog_entries, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+console.log(page);
+const { currentPage, lastPage, url, data: blog_posts } = page;
+---
+
+<Layout
+    active_route="/blog"
+    metadata={{
+        title: `Blog Posts | Page ${currentPage}`,
+        description: `Page ${currentPage}/${lastPage} of my blog posts.`,
+    }}
+>
+    <span class="page">Page {currentPage}/{lastPage}</span>
+    <h1>Blog</h1>
+    <p>
+        These blog posts contain a mix of shower thoughts, rambles, computing,
+        and much more. Enjoy!
+    </p>
+    <Separator />
+    <div class="blog-posts">
+        {blog_posts.map((p) => <BlogPost post={p} />)}
+    </div>
+    <div class="navigation">
+        <HorizontalItems
+            items={[
+                {
+                    title: "First",
+                    href: currentPage !== 1 ? "/blog/page/1" : "",
+                    custom_class: [currentPage === 1 ? "disabled" : ""],
+                },
+                {
+                    title: "Previous",
+                    href: url.prev,
+                    custom_class: [!url.prev ? "disabled" : ""],
+                },
+                {
+                    title: "Next",
+                    href: url.next,
+                    custom_class: [!url.next ? "disabled" : ""],
+                },
+                {
+                    title: "Last",
+                    href:
+                        currentPage !== lastPage
+                            ? `/blog/page/${lastPage}`
+                            : "",
+                    custom_class: [currentPage === lastPage ? "disabled" : ""],
+                },
+            ]}
+        />
+    </div>
+</Layout>
+
+<style lang="scss">
+    .page {
+        opacity: 0.75;
+        font-style: italic;
+        text-transform: uppercase;
+    }
+
+    .blog-posts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .navigation {
+        padding-block: 1rem;
+
+        :global(*) {
+            text-decoration: underline;
+            justify-content: center;
+
+            &.disabled {
+                opacity: 0.75;
+
+                &,
+                & * {
+                    cursor: not-allowed !important;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 574px) {
+        .blog-posts {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
