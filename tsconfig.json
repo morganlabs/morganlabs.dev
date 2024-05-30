@@ -5,7 +5,8 @@
       "@styles/*": ["style/*"],
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@collections": ["content/config.ts"]
     }
   },
   "extends": "astro/tsconfigs/strict"

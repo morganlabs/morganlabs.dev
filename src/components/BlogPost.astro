@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import PublishedBy from "./PublishedBy.astro";
+
+type Props = {
+    post: CollectionEntry<"blog">;
+};
+
+const {
+    post: {
+        id: d_id,
+        slug,
+        data: {
+            authors,
+            title,
+            kicker,
+            description,
+            published: d_published,
+            tags,
+            hero_alt,
+        },
+    },
+} = Astro.props;
+
+const id = d_id.split(".")[0];
+
+const hero_images = Object.entries(
+    import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/blog/**/hero.png",
+    ),
+).find(([k]) => k.includes(id));
+
+if (!hero_images) throw new Error(`No hero image found for ${id}.`);
+const hero_image = hero_images[1];
+
+const date = d_published.getDate();
+const month = d_published.toLocaleString("default", { month: "long" });
+const year = d_published.getFullYear();
+const published = `${date} ${month} ${year}`.toUpperCase();
+
+console.log(authors, title, kicker, description, published, tags);
+---
+
+<article class="blog-post">
+    <a href={`/blog/${slug}`} class="blog-post-link">
+        <Image class="hero" src={hero_image()} alt={hero_alt} width={380} />
+    </a>
+    <div class="info">
+        <span class="published">{published}</span>
+        <span class="tags">
+            {
+                tags.map(({ id }) => (
+                    <a href={`/tags/${id}`} class="tag">
+                        #{id.toUpperCase()}
+                    </a>
+                ))
+            }
+        </span>
+    </div>
+    <a class="title" href={`/blog/${slug}`}>{title}</a>
+    <div class="kicker">{kicker}</div>
+    <PublishedBy {authors} />
+</article>
+
+<style lang="scss">
+    .hero {
+        width: 100%;
+        height: auto;
+    }
+
+    .info {
+        display: flex;
+        gap: 1rem;
+        padding-top: 0.25rem;
+        font-size: 0.75rem;
+        font-style: italic;
+        opacity: 0.5;
+
+        * {
+            color: $white;
+        }
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .title {
+        color: $white;
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+
+    .kicker {
+        padding-top: 0.25rem;
+        padding-bottom: 0.5rem;
+    }
+</style>

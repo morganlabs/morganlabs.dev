@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getEntries } from "astro:content";
+import type { ContentEntryMap } from "astro:content";
+
+type Props = {
+    authors: {
+        collection: keyof ContentEntryMap;
+        slug: CollectionEntry<"authors">["slug"];
+    }[];
+};
+
+const { authors: d_authors } = Astro.props;
+const authors = await getEntries(d_authors);
+const { id: d_id, slug: username } = authors[0];
+const id = d_id.split(".")[0];
+
+const hero_images = Object.entries(
+    import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/profile-images/*.png",
+    ),
+).find(([k]) => k.includes(id));
+
+if (!hero_images) throw new Error(`No hero image found for ${id}.`);
+const hero_image = hero_images[1];
+---
+
+<span class="published-by">
+    <Image
+        src={hero_image()}
+        alt={`@${username}'s profile picture`}
+        width={32}
+    />
+    <span>Published by <a href={`/about/@${username}`}>@{username}</a></span>
+</span>
+
+<style lang="scss">
+    .published-by {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        a {
+            color: $white;
+        }
+    }
+</style>

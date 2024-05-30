@@ -1,13 +1,22 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Separator from "@components/Separator.astro";
-import ThumbsUp from "@assets/memoji/thumbs_up.png";
 import { Image } from "astro:assets";
+import { getCollection as get_collection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
 import HorizontalLinks from "@components/HorizontalLinks.astro";
+import Separator from "@components/Separator.astro";
+import BlogPost from "@components/BlogPost.astro";
+import ThumbsUp from "@assets/profile-images/1_morganlabs.png";
+import { getEntry as get_entry } from "astro:content";
 
 const current_date = new Date();
 const birth_date = new Date("2007-03-01");
 const age = current_date.getFullYear() - birth_date.getFullYear();
+
+const x = await get_collection("blog");
+const blog_posts = [...x, ...x];
+
+const me = await get_entry("authors", "morganlabs");
+const socials = me.data.social_media;
 ---
 
 <Layout
@@ -21,22 +30,36 @@ const age = current_date.getFullYear() - birth_date.getFullYear();
     <h1>Hiya! I'm Morgan.</h1>
     <p>I am a {age} year old designer and developer living in Wales.</p>
     <div class="social-links">
-        <HorizontalLinks
-            links={[
-                { title: "GitHub", href: "/s/github" },
-                { title: "Ko-Fi", href: "/support" },
-                { title: "Mastodon", href: "/s/mastodon" },
-                { title: "X", href: "/s/formerlytwitter" },
-            ]}
-        />
+        <HorizontalLinks links={socials} />
     </div>
     <Separator />
+    <h2>Recent Blog Posts</h2>
+    <p>
+        A list of my most recent blog posts. <a href="/blog/page/1"
+            >Read more!</a
+        >
+    </p>
+    <div class="blog-posts">
+        {blog_posts.map((p) => <BlogPost post={p} />)}
+    </div>
 </Layout>
 
 <style lang="scss">
     .social-links {
         :global(*) {
             justify-content: center;
+        }
+    }
+
+    .blog-posts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    @media (max-width: 574px) {
+        .blog-posts {
+            grid-template-columns: 1fr;
         }
     }
 </style>

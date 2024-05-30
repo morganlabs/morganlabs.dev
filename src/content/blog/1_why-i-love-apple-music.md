@@ -1,0 +1,142 @@
+---
+slug: why-i-love-apple-music
+title: "How Apple Music changed the way I listen to music."
+kicker: "And no, it's not Lossless."
+description: "A love letter to Apple Music, the service that has changed the way I listen to music."
+published: 2024-05-27
+tags: ["music", "software"]
+hero_alt: A screenshot of a smart playlist in Apple Music.
+---
+
+Apple Music is a service I've been using for about a year and a half at this point, and I'll say I have fallen in love with it. No, it's not Lossless or Dolby Atmos (though they play a small part), but other little things that make the service worth the money.
+
+# Preface
+
+I'd like to preface this by saying I'm not an Apple Fanboy. I don't *really* care what you think of me, where I fall on the "fanboy" scale, but I'd like it to be known. I use macOS, and I enjoy macOS to a degree. I use an iPhone, which has been one of the worst decisions of my life. I'm not loyal to Apple, or any brand, because it's counterproductive and keeps me away from some amazing services.
+
+Don't get an iPhone. Save yourself 🥲.
+
+# My History with Streaming Services
+
+Many many years ago, I was an iTunes user. A young one... with no job... or a way to buy music. I did what many did. I googled "YouTube to mp3 converter" and downloaded all of my music to my shitty Lenovo z50-75, imported, and manually organised inside of iTunes. I felt so cool.
+
+> "Look at me, using this cool-ass Apple product. Yeah, I'm so cool."
+
+Okay, okay, let's start talking about actually **streaming** music. After a while of getting annoyed at not being able to find good quality album art, I decided to just make a Spotify Free account. I opened one up and got to adding all of my music... Again. After about an hour, everything was transferred over.
+
+After using the account for a while, my dad got a Premium account and offered to share it with me. Of course, I said yes! Again, it was fine, but now that this singular account was shared, we couldn't listen to music when the other was. And sometimes I'd feel slightly embarrassed when my Rock'n'Roll father saw my, at the time, very Pop-centric tastes! And not to mention our recommendations had gone to shit. We managed to make it work for a while.
+
+One day, my dad bit the bullet and invested in a YouTube Premium family subscription. Finally! No ads on YouTube without an adblock, and YouTube Music alongside that! I, again, transferred everything. By hand. Again. Noticing a pattern here? Now, I can't complain too much. The service is free to me, thanks to my dad, but YouTube Music wasn't the best experience for me. Things felt sluggish, lyrics were essentially the equivalent of writing a basic ass paragraph tag in HTML, the audio quality ranged from "acceptable" to ✨ dogshit ✨" some tracks were far too loud and others were very quiet, recommendations weren't great, and syncing my likes between YouTube and Music?? What the fuck were you on, Google???
+
+After I finally got a job, I knew a change needed to be made. I had been putting up with YouTube Music for a while now, but I knew I needed something better. Something more powerful.
+
+# Discovering Apple Music
+
+Apple Music was on my radar for quite some time. Based off of iTunes, so it's got a good foundation, Lossless and Dolby Atmos, good enough reviews, an **actually** good Android app, and the list goes on. They had a student discount and an extended free trial, so I went for it. And I fell head-over-heels in love with this damn thing.
+
+Opened the app, logged into my Apple ID, and started adding music. Manually. Again.
+
+I then decided to download the app on my Windows 10 laptop. Actual Apple Music, not iTunes. I opened it and after a while, I wanted to make a playlist. Clicked the little "+" and saw an... interesting option.
+
+> New Smart Playlist
+
+"What could that be?" I clicked on it and what I saw required absolutely zero explanation. I was over the moon.
+
+## Smart Playlists
+
+![[Pasted image 20240527230606.png]]
+
+ARE YOU SEEING THIS SHIT? Might not look like much, but let's take a look at another smart playlist.
+
+![[Pasted image 20240528000719.png]]
+
+Are you starting to get it now?
+
+![[Pasted image 20240528000743.png]]
+
+If you still aren't getting it, let me spell it out for you. Smart Playlists are a way of letting Apple Music make playlists for you, not on it's own, but with your own parameters.
+
+What it essentially does is looks at the parameters you've set, goes through your library, finds all songs that match, and puts them all in the playlist.
+
+Now, I'm not one for making playlists. Who has time for it? I don't know. I want to throw on music and go about my day. But this? I can finally get the exact vibe, artist or genre I'm looking for each and every time, all with just a few parameters!
+
+On it's own, this is pretty neat! After thinking some more on it, and finding out that Apple Music supports star ratings, I had an idea.
+
+## Star Ratings
+
+I devised a system to easily manage my music in a way that was optimal for creating smart playlists, and it goes like this:
+
+1 star - It's a good song
+2 stars - It's the best of the album
+3 stars - It's the best of the artist
+4 stars - It's the best of the genre
+5 stars - The things I would do to this song... 🫦
+
+I'm not very good at *enforcing* this ruleset, but having it in place definitely helps.
+
+> "So, what if you don't like the song?"
+> \- You, possibly
+
+Delete it. Apple Music lets you.
+
+Who in their right mind at the likes of Spotify and TIDAL decided that letting users only add individual songs from albums to their library wasn't the right thing to do? It's **my** library. If I don't like a song in an album, let me remove it from my library entirely. Same goes for if I only like one song from an album, let me just add that one!
+
+## Metadata
+
+Another extremely neat feature is the ability to edit a bunch of metadata of songs! Want to move the featured artist from the title to the artists section? Go for it! Don't like an artist, but they collaborated on a song you do like? Change it (though that feels very petty)! The possibilities go on.
+
+This actually has come in quite handy a couple of times for me. One such time was when I was listening to [Meteora|20th Anniversary Edition by LINKIN PARK](https://music.apple.com/gb/album/meteora-20th-anniversary-edition/1668484895\). I don't normally listen to live shows. I'll watch them online, sure, but I don't listen to them. So, all I did was split the album in two. One with the original Meteora along with the new demos and songs, and another with just live shows. Now I can listen to Meteora|20 without skipping around a bunch, but I always have the live shows right there.
+
+## Apple Music Cloud Library
+
+This here is a godsend of a feature. This lets you sync your music between devices. Sounds basic, right? Well, take a look here:
+
+![[Pasted image 20240528005215.png]]
+
+
+Go ahead and look this album up on Apple Music. No, seriously, go on. I'll give you a few minutes.
+
+You're back? Great! Assuming this hasn't been added to Apple Music, you found nothing. Now look at this:
+
+![[Screenshot 2024-05-28 at 00.52.33.jpeg|256]]
+
+> "Okay? You synced it to your phone."
+> \- You again, possibly
+
+Technically, yes. But what if I said neither my phone nor my computer held these files anywhere on either device? And I didn't have to sync SHIT myself?
+
+That's right, with Apple Music your cloud library can be [up to 100,000 songs in size, including your own songs](https://support.apple.com/en-gb/guide/itunes/itnsa3dd5209/windows)! These songs can be your own work, from artists on other services like Soundcloud, CD rips, anything! Just as long as they're in a supported format, they can be uploaded and streamed from any device on your Apple ID!
+
+## Lossless
+
+I may anger some with what I'm about to say here, but here goes nothing.
+
+While lossless cool, it isn't essential. And it shouldn't be the sole reason you choose one service over another. With a nice pair of headphones and some other decent equipment, it can be a very pleasant experience! But, in your day-to-day, unless you're some kind of music producer, do you really sit there and analyse the audio? Sure, a 16kbps MP3 file isn't enjoyable for **anyone**, but lossy audio formats have improved a lot!
+
+I own a pair of Sony WF-1000XM4s (great name, Sony), which support things like LDAC (apparently no one knows what that stands for) and Sony 360 Reality Audio. LDAC allows you to stream higher resolution audio over Bluetooth, up to 990kbps, and it's cool as fuck. It would be SUCH a FUCKING SHAME if APPLE didn't SUPPORT IT ON THEIR DEVICES! (I had to use it on my laptop to test it out.) It sounds better, I'll say that, but as I'm listening to music, I'm also doing some other things alongside it. As long as the quality is good enough, I'm more than happy.
+
+## Dolby Atmos
+
+Now this. Ha. I can't. I love this too much. Comparing the same track with and without Atmos is like a night-and-day difference. Atmos adds another dimension to music. I've listened to tracks with Atmos for the first time ever and experienced full-body chills from it. Insane stuff.
+
+# So, what's bad with it?
+
+Yeah, I'll admit it. As much as I love Apple Music, it has its downfalls, but to me, they aren't extremely limiting.
+
+### MusicKit on non-Apple OSes
+
+At the moment, I'm using macOS. But on a Linux device, using a 3rd party client like Cider, or the 1st party web app, I can't access smart playlists or star ratings. That literally takes away 80% of the reason I use this service. I believe it's due to some WebKit limitation imposed by Apple on non-Apple hardware. The same goes for lossless, but, as I went through, I'm not entirely bothered.
+
+### Artist Organisation
+
+I believe this is a little remnant of iTunes showing through the cracks, but look at this list of artists:
+
+![[Pasted image 20240528011239.png]]
+
+Whenever an artist has another artist listed in their artist tag (say that three times fast), they show up as an entirely different artist entity inside of the artists list. Not a massive deal, but something to note.
+
+# "Why'd you write this then?"
+
+Not a damn clue. To me, this is the absolute minimum for what a music streaming service should be. Metadata, ratings and control. I actually find it quite ironic that Apple Music is the streaming service that gives you some of the highest control compared to others despite being an Apple product.
+
+I'm not sure who from Spotify, TIDAL, etc., could be reading this (likely no one LMAO), but if you are, please take what I said above and implement it into your own software. These are INCREDIBLE ideas that I think all services could benefit from. And not to mention, things like deleting singular songs from albums seems pretty fuckin' basic to me. Think about it.
