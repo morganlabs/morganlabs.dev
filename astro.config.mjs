@@ -35,6 +35,7 @@ export default defineConfig({
     "/favicon.ico": "/fav/favicon.ico",
     "/support": "/s/ko-fi",
     "/s/[slug]": "/social/[slug]",
+    "/about/[slug]": "/about/@[slug]",
   },
 });
 

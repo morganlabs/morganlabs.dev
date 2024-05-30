@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import HorizontalLinks, { type Item } from "./HorizontalItems.astro";
+import HorizontalItems from "./HorizontalItems.astro";
+
+type Props = {
+    name: string;
+    username: string;
+    kicker?: string;
+    social_media?: Item[];
+    email?: string;
+};
+
+const { name, username, kicker, social_media, email } = Astro.props;
+
+let user_info: Item[] = [{ title: "@" + username }];
+
+if (email) user_info.push({ title: email, href: `mailto:${email}` });
+
+const profile_images = Object.entries(
+    import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/profile-images/*.png",
+    ),
+).find(([k]) => k.includes(username));
+
+if (!profile_images) throw new Error(`No hero image found for @${username}.`);
+const profile_image = profile_images[1];
+---
+
+<header class="header">
+    <Image
+        class="profile-image"
+        src={profile_image()}
+        alt={`@${username}'s profile picture.`}
+        widths={[128, 96]}
+        sizes={`(max-width: 574px) 96px, 128px`}
+    />
+    <div class="info">
+        <span class="links">
+            <HorizontalLinks items={user_info} />
+        </span>
+        <h1>{name}</h1>
+    </div>
+    <div class="below">
+        <span class="kicker">{kicker}</span>
+        {
+            () => {
+                if (social_media)
+                    return (
+                        <div class="social-links">
+                            <HorizontalItems items={social_media} />
+                        </div>
+                    );
+            }
+        }
+    </div>
+</header>
+
+<style lang="scss">
+    .header {
+        display: grid;
+        grid-template-columns: 128px 1fr;
+        grid-template-rows: 1fr auto;
+        align-items: center;
+    }
+
+    .social-links {
+        margin-top: 0.5rem;
+
+        :global(*) {
+            justify-content: center;
+        }
+    }
+
+    .profile-image {
+        grid-row: 1;
+        grid-column: 1;
+        border-radius: 9999px;
+        width: auto;
+        height: auto;
+    }
+
+    .info {
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+    .below {
+        grid-row: 2;
+        grid-column: 1 / span 2;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        opacity: 0.75;
+
+        :global(*) {
+            row-gap: 0.25rem;
+        }
+    }
+
+    @media (max-width: 574px) {
+        .header {
+            grid-template-columns: 96px 1fr;
+        }
+    }
+</style>

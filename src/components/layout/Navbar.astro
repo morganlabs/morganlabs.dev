@@ -1,5 +1,5 @@
 ---
-import HorizontalLinks from "@components/HorizontalLinks.astro";
+import HorizontalLinks from "@components/HorizontalItems.astro";
 
 type Page = {
     title: string;
@@ -38,7 +38,7 @@ const filtered_pages = pages
 
 <nav class="navbar">
     <div class="container">
-        <HorizontalLinks links={filtered_pages} />
+        <HorizontalLinks items={filtered_pages} />
         <a href="mailto:mjones@morganlabs.dev" class="email"
             >mjones@morganlabs.dev</a
         >

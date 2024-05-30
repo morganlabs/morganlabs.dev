@@ -1,0 +1,39 @@
+---
+import HorizontalItems from "@components/HorizontalItems.astro";
+import Separator from "@components/Separator.astro";
+import UserAboutHeader from "@components/UserAboutHeader.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollection as get_collection } from "astro:content";
+
+export async function getStaticPaths() {
+    const authors = await get_collection("authors");
+    return authors.map((author) => ({
+        params: { slug: "@" + author.slug },
+        props: { author },
+    }));
+}
+
+const { author } = Astro.props;
+const {
+    slug: username,
+    data: { name, email, kicker, social_media },
+} = author;
+
+const { Content } = await author.render();
+---
+
+<Layout
+    active_route="/about"
+    metadata={{
+        title: "",
+        description: ``,
+        author: {
+            name,
+            email: (email as `${string}@${string}.${string}`) ?? null,
+        },
+    }}
+>
+    <UserAboutHeader {name} {username} {email} {kicker} {social_media} />
+    <Separator />
+    <Content />
+</Layout>

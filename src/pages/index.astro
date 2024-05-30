@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection as get_collection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import HorizontalLinks from "@components/HorizontalLinks.astro";
+import HorizontalLinks from "@components/HorizontalItems.astro";
 import Separator from "@components/Separator.astro";
 import BlogPost from "@components/BlogPost.astro";
 import ThumbsUp from "@assets/profile-images/1_morganlabs.png";
@@ -31,7 +31,7 @@ const socials = me.data.social_media;
     <h1>Hiya! I'm Morgan.</h1>
     <p>I am a {age} year old designer and developer living in Wales.</p>
     <div class="social-links">
-        <HorizontalLinks links={socials} />
+        <HorizontalLinks items={socials} />
     </div>
     <Separator />
     <h2>Recent Blog Posts</h2>

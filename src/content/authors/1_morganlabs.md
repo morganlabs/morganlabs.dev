@@ -1,6 +1,7 @@
 ---
 slug: morganlabs
 name: Morgan Jones
+kicker: I love learning, sometimes I even write about it... Or other, completely unrelated things.
 email: mjones@morganlabs.dev
 social_media: [
   { title: "GitHub", href: "https://github.com/morganlabs" },
@@ -9,3 +10,5 @@ social_media: [
   { title: "FormerlyTwitter", href: "https://x.com/morganlabs_" },
 ]
 ---
+
+Text

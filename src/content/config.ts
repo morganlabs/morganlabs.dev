@@ -5,7 +5,8 @@ const authors = defineCollection({
   type: "content",
   schema: object({
     name: string(),
-    email: string().email(),
+    email: string().email().optional(),
+    kicker: string(),
     social_media: array(object({ title: string(), href: string() })),
   }),
 });

@@ -1,15 +1,15 @@
 ---
-type Link = {
+export type Item = {
     title: string;
-    href: string;
+    href?: string;
     custom_class?: string[];
 };
 
 type Props = {
-    links: Link[];
+    items: Item[];
 };
 
-let { links } = Astro.props;
+let { items: links } = Astro.props;
 links = links.map((link) => ({
     ...link,
     custom_class: link.custom_class ?? [],
@@ -18,14 +18,20 @@ links = links.map((link) => ({
 
 <ul class="links">
     {
-        links.map(({ title, href, custom_class }, idx) => (
+        links.map(({ title, href, custom_class }) => (
             <>
                 <li class:list={["link-container", ...custom_class!]}>
-                    <a class="link" {href}>
-                        {title}
-                    </a>
+                    {() => {
+                        if (href) {
+                            return (
+                                <a class="link" {href}>
+                                    {title}
+                                </a>
+                            );
+                        }
+                        return <span class="link">{title}</span>;
+                    }}
                 </li>
-                {idx === links.length - 1 ? null : <li class="seperator" />}
             </>
         ))
     }
@@ -34,9 +40,12 @@ links = links.map((link) => ({
 <style lang="scss">
     .links {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         list-style: none;
-        gap: 1rem;
+        column-gap: 1.5rem;
+        row-gap: 1rem;
+        overflow-x: auto;
     }
 
     .link {

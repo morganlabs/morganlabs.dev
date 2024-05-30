@@ -16,19 +16,19 @@ const authors = await getEntries(d_authors);
 const { id: d_id, slug: username } = authors[0];
 const id = d_id.split(".")[0];
 
-const hero_images = Object.entries(
+const profile_images = Object.entries(
     import.meta.glob<{ default: ImageMetadata }>(
         "/src/assets/profile-images/*.png",
     ),
 ).find(([k]) => k.includes(id));
 
-if (!hero_images) throw new Error(`No hero image found for ${id}.`);
-const hero_image = hero_images[1];
+if (!profile_images) throw new Error(`No hero image found for ${id}.`);
+const profile_image = profile_images[1];
 ---
 
 <span class="published-by">
     <Image
-        src={hero_image()}
+        src={profile_image()}
         alt={`@${username}'s profile picture`}
         width={32}
     />

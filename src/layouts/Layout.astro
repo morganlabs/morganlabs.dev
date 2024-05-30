@@ -12,7 +12,7 @@ type XCard = {
 
 type Author = {
     name: string;
-    email: `${string}@${string}.${string}`;
+    email?: `${string}@${string}.${string}`;
 };
 
 type Metadata = {
@@ -54,7 +54,9 @@ const {
 const author =
     typeof m_author === "string"
         ? m_author
-        : `${m_author.name} <${m_author.email}?`;
+        : m_author.email
+          ? `${m_author.name} <${m_author.email}>`
+          : m_author.name;
 ---
 
 <!doctype html>
