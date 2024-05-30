@@ -1,8 +1,8 @@
 ---
 slug: why-i-love-apple-music
-title: "How Apple Music changed the way I listen to music."
-kicker: "And no, it's not Lossless."
-description: "A love letter to Apple Music, the service that has changed the way I listen to music."
+title: How Apple Music changed the way I listen to music.
+kicker: And no, it's not Lossless.
+description: In this blog post, I talk about my history with different music streaming services, and how Apple Music stole my heart.
 published: 2024-05-27
 tags: ["music", "software"]
 hero_alt: A screenshot of a smart playlist in Apple Music.

@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import PublishedBy from "./PublishedBy.astro";
+import { get_hero_image } from "@lib";
 
 type Props = {
     post: CollectionEntry<"blog">;
@@ -25,14 +26,7 @@ const {
 
 const id = d_id.split(".")[0];
 
-const hero_images = Object.entries(
-    import.meta.glob<{ default: ImageMetadata }>(
-        "/src/assets/blog/**/hero.png",
-    ),
-).find(([k]) => k.includes(id));
-
-if (!hero_images) throw new Error(`No hero image found for ${id}.`);
-const hero_image = hero_images[1];
+const hero_image = get_hero_image(id);
 
 const date = d_published.getDate();
 const month = d_published.toLocaleString("default", { month: "long" });

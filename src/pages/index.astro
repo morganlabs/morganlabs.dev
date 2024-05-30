@@ -12,8 +12,7 @@ const current_date = new Date();
 const birth_date = new Date("2007-03-01");
 const age = current_date.getFullYear() - birth_date.getFullYear();
 
-const x = await get_collection("blog");
-const blog_posts = [...x, ...x];
+const blog_posts = await get_collection("blog");
 
 const me = await get_entry("authors", "morganlabs");
 const socials = me.data.social_media;

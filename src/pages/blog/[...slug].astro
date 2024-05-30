@@ -1,0 +1,96 @@
+---
+import PublishedBy from "@components/PublishedBy.astro";
+import Separator from "@components/Separator.astro";
+import Layout from "@layouts/Layout.astro";
+import { get_hero_image } from "@lib";
+import { Image } from "astro:assets";
+import { getEntries as get_entries } from "astro:content";
+import { getCollection as get_collection } from "astro:content";
+
+export async function getStaticPaths() {
+    const blog_entries = await get_collection("blog");
+    return blog_entries.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const {
+    title,
+    description,
+    tags,
+    kicker,
+    published: d_published,
+    authors: d_authors,
+    hero_alt,
+} = post.data;
+const { Content } = await post.render();
+
+const date = d_published.getDate();
+const month = d_published.toLocaleString("default", { month: "long" });
+const year = d_published.getFullYear();
+const published = `${date} ${month} ${year}`.toUpperCase();
+
+const authors = (await get_entries(d_authors))
+    .map(({ data: { name, email } }) => `${name} <${email}>`)
+    .join(",");
+
+const hero_image = get_hero_image(post.slug)();
+const { default: hero } = await hero_image;
+---
+
+<Layout
+    active_route="/blog"
+    metadata={{
+        title,
+        description: `${kicker} | ${description}`,
+        author: authors,
+        image: hero.src.replace("/@fs", ""),
+        keywords: tags.map((t) => t.id),
+    }}
+>
+    <div class="info">
+        <span class="published">{published}</span>
+        <span class="tags">
+            {
+                tags.map(({ id }) => (
+                    <a href={`/tags/${id}`} class="tag">
+                        #{id.toUpperCase()}
+                    </a>
+                ))
+            }
+        </span>
+    </div>
+    <h1>{title}</h1>
+    <div class="kicker">{kicker}</div>
+    <PublishedBy authors={d_authors} />
+    <Image class="hero" src={hero_image} alt={hero_alt} width={768} />
+    <Separator />
+    <Content />
+</Layout>
+
+<style lang="scss">
+    .hero {
+        width: 100%;
+        height: auto;
+    }
+
+    .info {
+        display: flex;
+        gap: 1rem;
+        padding-top: 0.25rem;
+        font-size: 0.75rem;
+        font-style: italic;
+        opacity: 0.5;
+
+        * {
+            color: $white;
+        }
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+    }
+</style>
