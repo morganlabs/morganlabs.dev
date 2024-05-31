@@ -34,8 +34,8 @@ const { Content } = await author.render();
 <Layout
     active_route="/about"
     metadata={{
-        title: "",
-        description: ``,
+        title: `About @${username}`,
+        description: kicker,
         author: {
             name,
             email: (email as `${string}@${string}.${string}`) ?? null,
