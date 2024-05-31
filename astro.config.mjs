@@ -18,6 +18,7 @@ const variables_scss = resolve(__dirname, "src/style/vars");
 
 export default defineConfig({
   output: "static",
+  site: "https://www.morganlabs.dev",
   markdown: {
     remarkPlugins: [[behead, { minDepth: 2 }], censor],
   },
