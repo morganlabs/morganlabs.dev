@@ -6,17 +6,27 @@ import { getCollection as get_collection } from "astro:content";
 
 export async function getStaticPaths() {
     const authors = await get_collection("authors");
-    return authors.map((author) => ({
-        params: { slug: "@" + author.slug },
-        props: { author },
-    }));
+    return authors
+        .map((author) => [
+            {
+                params: { slug: author.slug },
+                props: { author, slug: author.slug },
+            },
+            {
+                params: { slug: "@" + author.slug },
+                props: { author, slug: "@" + author.slug },
+            },
+        ])
+        .flat();
 }
 
-const { author } = Astro.props;
+const { author, slug: url_slug } = Astro.props;
 const {
     slug: username,
     data: { name, email, kicker, social_media },
 } = author;
+
+if (!url_slug.includes("@")) return Astro.redirect(`/about/@${username}`);
 
 const { Content } = await author.render();
 ---
