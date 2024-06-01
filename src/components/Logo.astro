@@ -1,0 +1,30 @@
+---
+import Full from "@assets/logos/full.svg";
+import Submark from "@assets/logos/submark.svg";
+import Icon from "@assets/logos/icon.svg";
+import { Image } from "astro:assets";
+
+type Logos = "full" | "submark" | "icon";
+
+type Props = {
+    type: Logos;
+};
+
+const { type } = Astro.props;
+
+const logos = new Map()
+    .set("full", Full)
+    .set("submark", Submark)
+    .set("icon", Icon);
+
+const logo = logos.get(type);
+---
+
+<img class="logo" src={logo.src} alt="morganlabs Logo" />
+
+<style lang="scss">
+    .logo {
+        width: 100%;
+        height: 100%;
+    }
+</style>

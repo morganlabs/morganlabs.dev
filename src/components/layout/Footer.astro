@@ -1,0 +1,41 @@
+---
+import Logo from "@components/Logo.astro";
+
+const startYear = 2023;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+    <div class="logo">
+        <Logo type="submark" />
+    </div>
+    <span class="copyright"
+        ><span class="highlight">&copy;</span> morganlabs {startYear}-{
+            currentYear
+        }</span
+    >
+</footer>
+
+<style lang="scss">
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: calc($content-width + 1rem);
+        width: 100%;
+        font-family: $body-font;
+        margin-inline: auto;
+        padding-inline: 1rem;
+        padding-block: 1rem;
+    }
+
+    .highlight {
+        color: $accent;
+    }
+
+    .logo {
+        display: block;
+        width: 32px;
+        height: 32px;
+    }
+</style>
