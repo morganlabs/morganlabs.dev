@@ -68,6 +68,15 @@ const { default: hero } = await hero_image;
     </div>
     <Image class="hero" src={hero_image} alt={hero_alt} width={768} />
     <Separator />
+    <div class="ask-dono">
+        <span class="small-title">Before you start...</span>
+        <p>
+            I make these blog posts for free. If you like my rants and rambles
+            and want to support my work, any donation at my <a href="/support"
+                >Ko-Fi</a
+            > is greatly appreciated!
+        </p>
+    </div>
     <article class="content">
         <Content />
     </article>
@@ -119,5 +128,20 @@ const { default: hero } = await hero_image;
             width: auto;
             height: auto;
         }
+    }
+
+    .ask-dono {
+        border: 2px solid $accent;
+        padding: 1rem;
+        margin-bottom: 1rem;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .small-title {
+        font-size: 1.125rem;
+        font-weight: bold;
     }
 </style>

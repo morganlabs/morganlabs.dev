@@ -77,6 +77,16 @@ a {
     }
 }
 
+.astro-code {
+    padding: 1rem;
+    margin-bottom: 1em;
+}
+
+:not(.astro-code) code {
+    background-color: #24292e;
+    color: #e1e4e8;
+}
+
 blockquote {
     padding-left: 1rem;
     position: relative;
