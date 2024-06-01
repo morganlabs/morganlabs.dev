@@ -1,6 +1,5 @@
 ---
 import PublishedBy from "@components/PublishedBy.astro";
-import Separator from "@components/Separator.astro";
 import Layout from "@layouts/Layout.astro";
 import { get_hero_image } from "@lib";
 import { Image } from "astro:assets";
@@ -67,7 +66,7 @@ const { default: hero } = await hero_image;
         <PublishedBy authors={d_authors} />
     </div>
     <Image class="hero" src={hero_image} alt={hero_alt} width={768} />
-    <Separator />
+    <hr />
     <div class="ask-dono">
         <span class="small-title">Before you start...</span>
         <p>

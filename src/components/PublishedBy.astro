@@ -17,12 +17,10 @@ const { id: d_id, slug: username } = authors[0];
 const id = d_id.split(".")[0];
 
 const profile_images = Object.entries(
-    import.meta.glob<{ default: ImageMetadata }>(
-        "/src/assets/profile-images/*.png",
-    ),
+    import.meta.glob<{ default: ImageMetadata }>("/src/assets/authors/*.png"),
 ).find(([k]) => k.includes(id));
 
-if (!profile_images) throw new Error(`No hero image found for ${id}.`);
+if (!profile_images) throw new Error(`No profile image found for ${id}.`);
 const profile_image = profile_images[1];
 ---
 

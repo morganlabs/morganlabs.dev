@@ -1,5 +1,4 @@
 ---
-import Separator from "@components/Separator.astro";
 import UserAboutHeader from "@components/UserAboutHeader.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection as get_collection } from "astro:content";
@@ -43,6 +42,6 @@ const { Content } = await author.render();
     }}
 >
     <UserAboutHeader {name} {username} {email} {kicker} {social_media} />
-    <Separator />
+    <hr />
     <Content />
 </Layout>

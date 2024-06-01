@@ -1,7 +1,6 @@
 ---
 import { getCollection as get_collection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Separator from "@components/Separator.astro";
 import BlogPost from "@components/BlogPost.astro";
 import { getEntry as get_entry } from "astro:content";
 import UserAboutHeader from "@components/UserAboutHeader.astro";
@@ -32,7 +31,7 @@ const { kicker, social_media } = me.data;
         {social_media}
         no_user_info
     />
-    <Separator />
+    <hr />
     <h2>Recent Blog Posts</h2>
     <p>
         A list of my most recent blog posts. <a href="/blog/page/1"

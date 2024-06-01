@@ -20,12 +20,11 @@ let user_info: Item[] = [{ title: "@" + username }];
 if (email) user_info.push({ title: email, href: `mailto:${email}` });
 
 const profile_images = Object.entries(
-    import.meta.glob<{ default: ImageMetadata }>(
-        "/src/assets/profile-images/*.png",
-    ),
+    import.meta.glob<{ default: ImageMetadata }>("/src/assets/authors/*.png"),
 ).find(([k]) => k.includes(username));
 
-if (!profile_images) throw new Error(`No hero image found for @${username}.`);
+if (!profile_images)
+    throw new Error(`No profile image found for @${username}.`);
 const profile_image = profile_images[1];
 ---
 
