@@ -1,0 +1,30 @@
+---
+import "@styles/global.scss";
+import { getEntry as get_entry } from "astro:content";
+
+export async function getStaticPaths() {
+    const {
+        data: { social_media },
+    } = await get_entry("authors", "morganlabs");
+    return social_media.map((social) => ({
+        params: { slug: social.title.toLowerCase() },
+        props: { social },
+    }));
+}
+
+const { social } = Astro.props;
+---
+
+<head>
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content={`0; url=${social.href}`} />
+</head>
+<body>
+    <p>
+        If you are not redirected automatically, follow this <a
+            href={social.href}>link</a
+        >.
+    </p>
+</body>
+
+<style lang="scss"></style>
