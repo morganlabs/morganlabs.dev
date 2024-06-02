@@ -20,7 +20,9 @@ let user_info: Item[] = [{ title: "@" + username }];
 if (email) user_info.push({ title: email, href: `mailto:${email}` });
 
 const profile_images = Object.entries(
-    import.meta.glob<{ default: ImageMetadata }>("/src/assets/authors/*.png"),
+    import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/authors/**/profile.png",
+    ),
 ).find(([k]) => k.includes(username));
 
 if (!profile_images)

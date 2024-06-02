@@ -17,7 +17,9 @@ const { id: d_id, slug: username } = authors[0];
 const id = d_id.split(".")[0];
 
 const profile_images = Object.entries(
-    import.meta.glob<{ default: ImageMetadata }>("/src/assets/authors/*.png"),
+    import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/authors/**/profile.png",
+    ),
 ).find(([k]) => k.includes(id));
 
 if (!profile_images) throw new Error(`No profile image found for ${id}.`);
