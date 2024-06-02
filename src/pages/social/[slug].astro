@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { social } = Astro.props;
-return Astro.redirect(social.href);
+return Astro.redirect(social.href, 302);
 ---
 
 <Layout
