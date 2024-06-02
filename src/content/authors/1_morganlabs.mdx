@@ -11,6 +11,8 @@ social_media: [
 ]
 ---
 
+import { Image } from "astro:assets";
+
 export const age = new Date().getFullYear() - 2007;
 
 Hiya! I'm Morgan. I am a {age} year old software developer, UI/UX designer, writer (kinda), and all-around nerd. But I'm not just that. Here, I'd like a second to talk a bit about who I am outside of the tech world.
@@ -35,15 +37,28 @@ I have some hobbies that I enjoy doing in my free time. Some of them are related
 
 ## Gaming
 
-I don't play games much, but when I do, I enjoy playing story-driven games. I am playing through the Yakuza/Like a Dragon game series at the moment (I've finished Yakuza 6, so spoilers! 🫣). I am also interested in playing the Persona series, as I have heard some amazing reviews.
+I don't play games much, but when I do, I enjoy playing story-driven games. I am playing through the Yakuza/Like a Dragon game series at the moment (I've finished Yakuza 6, so no spoilers! 🫣). I am also interested in playing the Persona series, as I have heard some amazing reviews.
+
+
+import Gaming from "@assets/authors/1_morganlabs/gaming.png"
+
+<Image src={Gaming} alt="An image containg The Joker from Persona 5 and Kazuma Kiryu from the Yakuza/Like a Dragon francise." width={768} />
 
 ## Anime
 
 I enjoy watching anime from time-to-time, usually with a friend. I have finished watching School Days, and I'm currently going through Initial D and You're Under Arrest. I have watched a few episodes of Neon Genesis Evangelion, which I really need to get back into. I have a massive list of other anime I need to watch.
 
+import Anime from "@assets/authors/1_morganlabs/anime.png"
+
+<Image src={Anime} alt="An image containing 3 anime series': Neon Genesis Evangelion, You're Under Arrest and School Days" width={768} />
+
 ## Writing
 
 I don't write often; it's a newer hobby of mine, but I like to write blog posts on this website. They're professional... sometimes. They're usually just ramblings and rants about new things I've discovered, reviews of different things, shower thoughts, things that bug me, etc. Nothing written in them is meant to be taken seriously, and I don't fully expect people to read them. I just enjoy writing them!
+
+import Writing from "@assets/authors/1_morganlabs/writing.png"
+
+<Image src={Writing} alt="A comedic WordArt image that reads: I couldn't THINK of an image for writing So enjoy this WordArt." width={768} />
 
 ## Music
 
@@ -53,7 +68,12 @@ I'm a total neat freak when it comes to my music. It's all gotta have the right 
 
 I'd like to go a step even further and start self-hosting my own Subsonic music server at some point in the future to host CD rips.
 
+
 I also have a couple of vinyl records... no record player though. I have [Hybrid Theory by LINKIN PARK](https://music.apple.com/gb/album/hybrid-theory/528436018) and [Found Heaven by Conan Gray](https://music.apple.com/gb/album/found-heaven/1727371945) (see what I meant by a "wide range of music"?) currently, and I would love to expand my collection. ~~And maybe actually get a record player.~~
+
+import Music from "@assets/authors/1_morganlabs/music.png"
+
+<Image src={Music} alt="An image containing 3 album artworks: Meteora 20th anniversary special edition by LINKIN PARK, Americal Idiot by Green Day and Mildred by Grim Salvo." width={768} />
 
 ## Cars
 
@@ -64,6 +84,10 @@ Thanks to my best friend, I got into cars about a year ago. I'm learning more an
 Not long ago, I discovered the Mazda MX-5, Miata, or whatever you want to call it. I think I'm in love. How a car can be so small and so fun to drive is completely beyond me. My favourite models are definitely the NA and the ND, of course. I'd love to own one of each generation, but we'll have to see where life takes me first.
 
 I have started attending MX-5 meets with my friend who owns an NA, and they're so much fun! I've only gone to one, but I've met incredible people, and I can't wait to go to more in the future.
+
+import Cars from "@assets/authors/1_morganlabs/cars.png"
+
+<Image src={Cars} alt="An image of a Mazda MX-5 with MX-5 written behind it in large text." width={768} />
 
 ---
 
