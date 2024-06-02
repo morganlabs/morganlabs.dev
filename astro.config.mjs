@@ -35,7 +35,7 @@ export default defineConfig({
   redirects: {
     "/favicon.ico": "/fav/favicon.ico",
     "/support": "/s/ko-fi",
-    "/s/[slug]": "/social/[slug]",
+    "/social/[slug]": "/s/[slug]",
   },
 });
 
