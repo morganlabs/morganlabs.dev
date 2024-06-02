@@ -43,5 +43,28 @@ const { Content } = await author.render();
 >
     <UserAboutHeader {name} {username} {email} {kicker} {social_media} />
     <hr />
-    <Content />
+    <article class="content">
+        <Content />
+    </article>
 </Layout>
+
+<style lang="scss">
+    .content {
+        text-align: center;
+        :global(*:not(img)) {
+            text-align: left;
+        }
+
+        :global(*:has(img)) {
+            text-align: center;
+        }
+
+        :global(* img),
+        :global(img) {
+            max-width: 100%;
+            max-height: 512px;
+            width: auto;
+            height: auto;
+        }
+    }
+</style>
