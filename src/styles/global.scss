@@ -14,3 +14,8 @@ body {
   background: $black;
   font-family: "Outfit", sans-serif;
 }
+
+::selection {
+  color: $black;
+  background: $accent;
+}
