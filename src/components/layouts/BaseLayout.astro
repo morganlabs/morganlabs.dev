@@ -1,19 +1,63 @@
 ---
 import "@styles/global.scss";
+
+interface Props {
+  title: string;
+  description?: string;
+  type?: "article" | "website";
+  keywords?: string[];
+  robots?: string[];
+  image?: string;
+  author: {
+    name?: string;
+    email?: string;
+  }
+}
+
+const {
+    title,
+    description,
+    image,
+    author: pAuthor,
+    keywords: pKeywords,
+    robots: pRobots,
+    type: pType,
+} = Astro.props;
+
+const author = pAuthor || { name: "Morgan Jones", email: "me@morganlabs.dev" };
+const keywords = pKeywords || [];
+const robots = pRobots || [];
+const type = pType || "website";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="me" href="https://mstdn.social/@morganlabs" />
+
 		<meta charset="UTF-8" />
+        <meta name='language' content='en-gb'>
+        <meta name='robots' content={robots.join(",")}>
+        <meta name="generator" content={Astro.generator} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Title</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+
+        <title>{title} | morganlabs</title>
+        <meta name='og:title' content={title}>
+        <meta name='description' content={description}>
+        <meta name='og:description' content={description}>
+        <meta name='copyright' content='morganlabs'>
+        <meta name='og:site_name' content='morganlabs'>
+        <meta name='url' content='http://www.morganlabs.dev'>
+        <meta name='owner' content='Morgan Jones, me@morganlabs.dev'>
+        <meta name='author' content={`${author.name}, ${author.email}`}>
+        <meta name='keywords' content={keywords.join(",")}>
+        <meta name='og:type' content={type}>
+        <meta name='og:image' content={image || ""}>
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>
 
 <style lang="scss">
