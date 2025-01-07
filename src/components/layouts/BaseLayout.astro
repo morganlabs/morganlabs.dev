@@ -1,5 +1,6 @@
 ---
 import "@styles/global.scss";
+import ContentLayout from "./ContentLayout.astro";
 
 interface Props {
   title: string;
@@ -56,7 +57,9 @@ const type = pType || "website";
         <meta name='og:image' content={image || ""}>
     </head>
     <body>
-        <slot />
+        <ContentLayout>
+            <slot />
+        </ContentLayout>
     </body>
 </html>
 
