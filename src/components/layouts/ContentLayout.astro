@@ -5,14 +5,18 @@
 </div>
 
 <style lang="scss">
+    $content-width: 840px;
+    $content-padding: 16px;
+
     .content-container {
         display: grid;
-        grid-template-columns: auto 840px auto;
+        grid-template-columns: auto (minmax(auto, $content-width) - $content-padding) auto;
         min-height: 100vh;
-        place-items: center;
+        align-items: center;
     }
 
     .content {
         grid-column: 2;
+        padding-inline: $content-padding;
     }
 </style>
