@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from 'astro-icon/components'
+---
+
+<BaseLayout title="Under Construction">
+    <h1 class="title"><span class="colon">.<span>under construction</h1>
+    <p>From branding to backend, I want to make sure everything is perfect. That's what I do.</p>
+    <p>Why not keep in touch?</p>
+    <div class="social-icons">
+        <a class="social-link" href="https://s.morganlabs.dev/github"><Icon size={32} name="social/github" /></a>
+        <a class="social-link" href="https://s.morganlabs.dev/mastodon"><Icon size={32} name="social/mastodon" /></a>
+        <a class="social-link" href="https://s.morganlabs.dev/discord"><Icon size={32} name="social/discord" /></a>
+        <a class="social-link" href="https://s.morganlabs.dev/in"><Icon size={32} name="social/linkedin" /></a>
+        <a class="social-link" href="https://s.morganlabs.dev/donate"><Icon size={32} name="social/ko-fi" /></a>
+    </div>
+</BaseLayout>
+
+<style lang="scss">
+    .title {
+        margin-bottom: 0.5rem;
+    }
+
+    .colon {
+        position: relative;
+
+        &::before {
+            content: ".";
+            position: absolute;
+            top: -0.3em;
+            font-size: inherit;
+            color: $accent;
+            text-shadow: rgba($accent, 0.75) 1px 0 10px;
+        }
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-left: -1rem;
+        margin-top: 1rem;
+    }
+
+    .social-link { 
+        display: block;
+        padding: 1rem;
+        color: $white;
+        transition: transform 0.25s cubic-bezier(.5, 0, .5, 3.5), color 0.2s ease-in-out;
+
+        &:hover, &:active {
+            color: $accent;
+            transform: scale(1.1);
+        }
+    }
+</style>
