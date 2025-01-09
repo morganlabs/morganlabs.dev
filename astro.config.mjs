@@ -18,5 +18,13 @@ export default defineConfig({
     },
   },
 
-  integrations: [icon()],
+  integrations: [
+    icon({
+      include: {
+        mdi: ["github", "mastodon", "linkedin", "donate"],
+        ic: ["baseline-discord"],
+      },
+    }),
+  ],
 });
+
